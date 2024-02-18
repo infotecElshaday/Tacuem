@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="application-name" content="Sistema Takane" />
+<meta name="autor" content="infotec.elshaday@gmail.com" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/font/wesome/css/all.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<title>Tacuem - Escola Dominical</title>
+<script>
+	dayName = new Array("domingo", "segunda", "terça", "quarta", "quinta",
+			"sexta", "sábado")
+	monName = new Array("janeiro", "fevereiro", "março", "abril", "maio",
+			"junho", "julho", "agosto", "setembro", "outubro", "novembro",
+			"dezembro")
+	now = new Date
+</script>
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-write"
+			id="takNavbar">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><img src="/img/Tacuem.png"
+					alt="" height="50" width="160" /></a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end"
+					id="navbarNav">
+					<div class="navbar-nav" id="takAdmin"></div>
+				</div>
+			</div>
+		</nav>
+		<div class="container" id="takHome">
+			<div th:replace="layouts/data"></div>
+			<div class="container" id="takCampo">
+				<h3 class="text-center">Tela de Login</h3>
+				<div class="row justify-content-center align-items-center">
+					<div id="takColuna" class="col-md-4">
+						<div id="takBox" class="col-md-12">
+							<form th:action="@{/login}" method="post">
+								<div class="container" id="takResposta"></div>
+								<div class="form-group">
+									<label class="text-left" for="username">Email:</label> <input
+										class="form-control" type="email" id="username"
+										name="username" placeholder="Digite seu email..." required>
+								</div>
+								<div class="form-group">
+									<label class="text-left" for="password">Senha:</label> <input
+										class="form-control" type="password" id="password"
+										name="password" placeholder="Digite sua senha..." required>
+								</div>
+								<div class="message" style="height: 20px"></div>
+								<div class="form-row">
+									<div class="form-group col-md-2"></div>
+									<div class="form-group col-md-8">
+										<button class="btn btn-dark btn-block" type="submit"
+											id="btnSalvar">Login</button>
+									</div>
+									<div class="form-group col-md-2"></div>
+									<span>Cadastre-se, clique </span> <a th:href="@{/salvar}"
+										class="text-danger" style="margin-left: 5px; font-weight: 600">aqui</a>
+										<span style="margin-top: 5px">Esqueci minha senha, clique </span> <a th:href="@{/}"
+										class="text-danger" style="margin-left: 5px; margin-top: 5px; font-weight: 600">aqui</a>
+								</div>
+								<div class="container" style="height: 10px"></div>
+								<div class="container" id="takResposta">
+									<div class="message" th:if="${param.error}">Email ou
+										senha inválidos</div>
+									<div class="message" th:if="${param.logout}">Desconectado
+										com sucesso.</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div th:replace="layouts/footer"></div>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+</html>

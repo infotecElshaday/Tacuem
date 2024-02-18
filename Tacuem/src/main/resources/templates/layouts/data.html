@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="application-name" content="Sistema Takane" />
+<meta name="autor" content="infotec.elshaday@gmail.com" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/font/wesome/css/all.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<title>GEDIS - Concursos Internos</title>
+<script>
+	dayName = new Array("domingo", "segunda", "terça", "quarta", "quinta",
+			"sexta", "sábado")
+	monName = new Array("janeiro", "fevereiro", "março", "abril", "maio",
+			"junho", "julho", "agosto", "setembro", "outubro", "novembro",
+			"dezembro")
+	now = new Date
+</script>
+</head>
+<body>
+		<div class="container" id="takData">
+			<script>
+				document.write("<span> Tracunhaém, " + dayName[now.getDay()] + ", "
+						+ now.getDate() + " de " + monName[now.getMonth()]
+						+ " de " + now.getFullYear() + ". </span>")
+			</script>
+		</div>
+
+</body>
+</html>

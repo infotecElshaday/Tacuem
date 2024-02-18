@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="application-name" content="Sistema Takane" />
+<meta name="autor" content="infotec.elshaday@gmail.com" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/font/wesome/css/all.min.css}" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
+<title>GEDIS - Concursos Internos</title>
+<script>
+	dayName = new Array("domingo", "segunda", "terça", "quarta", "quinta",
+			"sexta", "sábado")
+	monName = new Array("janeiro", "fevereiro", "março", "abril", "maio",
+			"junho", "julho", "agosto", "setembro", "outubro", "novembro",
+			"dezembro")
+	now = new Date
+</script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-write"
+		id="takNavbar">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><img src="/img/Tacuem.png"
+				alt="" height="50" width="160" /></a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end"
+				id="navbarNav">
+				<div class="navbar-nav" id="takAdmin">
+					<ul class="navbar-nav navbar-right">
+						<li class="nav-item"><span style="margin-right: 5px; font-weight: 600">[[${user.getRole()}]]: </span></li>
+						<li class="nav-item"><span>[[${user.getNome()}]]</span></li>
+						<li class="nav-item" id="linha"><a th:href="@{/logout}" class="text-center"> Sair</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+
+</body>
+</html>
